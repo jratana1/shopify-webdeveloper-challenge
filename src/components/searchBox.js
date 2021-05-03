@@ -1,25 +1,49 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React from 'react';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 
-function SearchBox () {
- const [search, setSearch] = useState("")
 
- const updateSearch = (val) => {
-    setSearch(val)
+function SearchBox (props) {
+
+ const updateSearch = (target) => {
+    props.setSearch(prevState => ({
+        ...prevState,
+        [target.name]: target.value}))
   }
 
  return (
+
         <Form>
-            <Form.Group controlId="formGroupEmail">
-                <Form.Label>Movie Search</Form.Label>
-                <Form.Control 
-                    value={ input }
-                    type="text" 
-                    onChange={ (e) => updateSearch(e.target.value) }
-                    placeholder='Search by Title'
-                    className='search-input' />
-            </Form.Group>
+            <Row>
+                <Col>
+                    <Form.Group controlId="formGroupSearch"> 
+                        <Form.Label>Movie Search</Form.Label>
+                        <Form.Control 
+                            value={ props.search.term }
+                            name="term"
+                            type="text" 
+                            onChange={ (e) => updateSearch(e.target) }
+                            placeholder='Search by Title'
+                            className='search-input' />
+                    </Form.Group>
+                </Col>
+                <Col>
+                    <Form.Group controlId="formGroupYear">
+                        <Form.Label>Year</Form.Label>
+                            <Form.Control 
+                                value={ props.search.year }
+                                name="year"
+                                type="number" 
+                                onChange={ (e) => updateSearch(e.target) }
+                                placeholder='Filter Year'
+                                min="1900"
+                                max="2021"
+                                className='search-input' />
+                    </Form.Group>
+                </Col>
+            </Row>
         </Form>
  )
 }
