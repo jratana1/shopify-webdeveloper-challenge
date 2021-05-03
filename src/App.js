@@ -7,6 +7,8 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Card from 'react-bootstrap/Card'
 
 import SearchBox from './components/searchBox';
+import Header from './components/header';
+
 
 
 import React, { useState, useEffect } from 'react'
@@ -33,6 +35,9 @@ function App() {
 
   return (
     <div className="App">
+      <Container>
+        <Header></Header>
+      </Container>
       <Container>
         <Row>
           <Col>

@@ -15,9 +15,9 @@ function SearchBox (props) {
 
  return (
 
-        <Form>
+        <Form className="Searchbox p-3">
             <Row>
-                <Col>
+                <Col xs={6} md={8}>
                     <Form.Group controlId="formGroupSearch"> 
                         <Form.Label>Movie Search</Form.Label>
                         <Form.Control 
@@ -29,7 +29,8 @@ function SearchBox (props) {
                             className='search-input' />
                     </Form.Group>
                 </Col>
-                <Col>
+                <Col></Col>
+                <Col >
                     <Form.Group controlId="formGroupYear">
                         <Form.Label>Year</Form.Label>
                             <Form.Control 
@@ -43,6 +44,7 @@ function SearchBox (props) {
                                 className='search-input' />
                     </Form.Group>
                 </Col>
+
             </Row>
         </Form>
  )
