@@ -17,19 +17,17 @@ import React, { useState, useEffect } from 'react'
 function App() {
   const [isBusy, setBusy] = useState(true)
   const [movies, setMovies] =useState([])
-  const [year, setYear] = useState("")
   const [page, setPage] = useState("1")
-  const [search, setSearch] = useState("ram")
+  const [search, setSearch] = useState({year: "", term: "ram"})
+  
 
  
   useEffect(
     () => {
-      fetch(`http://www.omdbapi.com/?s=${search}&y=${year}&page=${page}&type=movie&apikey=92f9200d`)
+      fetch(`http://www.omdbapi.com/?s=${search.term}&y=${search.year}&page=${page}&type=movie&apikey=92f9200d`)
         .then(resp => resp.json())
         .then(data =>{ 
-              console.log(data)
-              setMovies(data)
-              setBusy(false);})
+              setMovies(data)})
       },
     [search])
 
@@ -38,7 +36,7 @@ function App() {
       <Container>
         <Row>
           <Col>
-          <SearchBox></SearchBox>
+          <SearchBox setSearch={setSearch} search= {search}></SearchBox>
           </Col>
         </Row>
         <Row>
