@@ -6,10 +6,7 @@ function Alert(props) {
 
     const handleClose = () => props.setShow(false);
 
-  
     return (
-
-
   
         <Modal show={props.show} onHide={handleClose}>
           <Modal.Header closeButton>

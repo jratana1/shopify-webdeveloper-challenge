@@ -4,6 +4,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CardDeck from 'react-bootstrap/CardDeck'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+
 
 import SearchBox from './components/searchBox';
 import Header from './components/header';
@@ -12,6 +15,7 @@ import Paginate from './components/paginate'
 
 
 
+import { HashRouter, Route, Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react'
 
 
@@ -45,35 +49,52 @@ function App() {
     [search, page])
 
   return (
-    <div className="App">
-      <Container>
-        <Header></Header>
-      </Container>
-      <Container>
-        <Row>
-          <Col>
-          <SearchBox setPage={setPage} setSearch={setSearch} search= {search}></SearchBox>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <CardDeck>
-              <Row>
-                {mapMoviesToCards() ? mapMoviesToCards().slice(0,5) : null}
-              </Row>
-              <Row>
-                {mapMoviesToCards() ? mapMoviesToCards().slice(5,10) : null}
-              </Row>
-            </CardDeck>      
-          </Col>
-        </Row>
-      </Container>
-      <Container>
-        <Row className= "justify-content-center">
-          {mapMoviesToCards() ? <Paginate page={page} total={movies.totalResults} setPage={setPage}></Paginate> : null}
-        </Row>
-      </Container>
-    </div>
+    <HashRouter basename='/'>
+        <div className="App">
+                      <Route exact path="/" >
+                  <Landing />
+                </Route>
+                <Route exact path="/search" >
+                  <CardFilter props={players}/>
+                </Route>
+                <Route exact path="/nominations" >
+                    <ReadingsContainer players={players}/>
+                </Route>
+          <Container>
+              <Header></Header>
+              <Navbar  bg="light" expand="lg">
+                <Nav className="mr-auto">
+                  <Nav.Link href="#home">Home</Nav.Link>
+                  <Nav.Link href="#link">Link</Nav.Link>
+              </Nav>   
+          </Navbar>
+          </Container>
+          <Container>
+            <Row>
+              <Col>
+              <SearchBox setPage={setPage} setSearch={setSearch} search= {search}></SearchBox>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <CardDeck>
+                  <Row>
+                    {mapMoviesToCards() ? mapMoviesToCards().slice(0,5) : null}
+                  </Row>
+                  <Row>
+                    {mapMoviesToCards() ? mapMoviesToCards().slice(5,10) : null}
+                  </Row>
+                </CardDeck>      
+              </Col>
+            </Row>
+          </Container>
+          <Container>
+            <Row className= "justify-content-center">
+              {mapMoviesToCards() ? <Paginate page={page} total={movies.totalResults} setPage={setPage}></Paginate> : null}
+            </Row>
+          </Container>
+        </div>
+    </HashRouter>
   );
 }
 

@@ -4,3 +4,12 @@
   height: auto;
 }
 
+.navbar-header {
+  float: left;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-brand {float:none;}
+
