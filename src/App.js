@@ -12,6 +12,7 @@ import SearchBox from './components/searchBox';
 import Header from './components/header';
 import MovieCard from './components/movieCard'
 import Paginate from './components/paginate'
+import Landing from './components/landing'
 
 
 
@@ -51,24 +52,20 @@ function App() {
   return (
     <HashRouter basename='/'>
         <div className="App">
-                      <Route exact path="/" >
-                  <Landing />
-                </Route>
-                <Route exact path="/search" >
-                  <CardFilter props={players}/>
-                </Route>
-                <Route exact path="/nominations" >
-                    <ReadingsContainer players={players}/>
-                </Route>
           <Container>
               <Header></Header>
-              <Navbar  bg="light" expand="lg">
-                <Nav className="mr-auto">
+                  <Navbar  bg="light" expand="lg">
+                  <Nav className="mr-auto">
                   <Nav.Link href="#home">Home</Nav.Link>
-                  <Nav.Link href="#link">Link</Nav.Link>
-              </Nav>   
-          </Navbar>
-          </Container>
+                  <Nav.Link href="#/search">Search</Nav.Link>
+                  <Nav.Link href="#/search">Nominations</Nav.Link>
+                  </Nav>   
+               </Navbar>
+          </Container>  
+            <Route exact path="/home" >
+                <Landing />
+            </Route>
+          <Route exact path="/search" >
           <Container>
             <Row>
               <Col>
@@ -93,6 +90,11 @@ function App() {
               {mapMoviesToCards() ? <Paginate page={page} total={movies.totalResults} setPage={setPage}></Paginate> : null}
             </Row>
           </Container>
+          </Route>
+
+          <Route exact path="/nominations" >
+              <Nominations></Nominations>
+          </Route>
         </div>
     </HashRouter>
   );
