@@ -11,6 +11,7 @@ function SearchBox (props) {
     props.setSearch(prevState => ({
         ...prevState,
         [target.name]: target.value}))
+    props.setPage(1)    
   }
 
  return (

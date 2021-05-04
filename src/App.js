@@ -26,8 +26,8 @@ function App() {
 
   function mapMoviesToCards() {
     if (movies.Search && movies.Search.length) {
-      return movies.Search.map((movie) => {
-        return <MovieCard key={movie.imdbID}title={movie.Title} year={movie.Year} poster={movie.Poster}></MovieCard>
+      return movies.Search.map((movie, index) => {
+        return <MovieCard key={index} imdb={movie.imdbID} title={movie.Title} year={movie.Year} poster={movie.Poster}></MovieCard>
       })
     }
   }
@@ -52,7 +52,7 @@ function App() {
       <Container>
         <Row>
           <Col>
-          <SearchBox setSearch={setSearch} search= {search}></SearchBox>
+          <SearchBox setPage={setPage} setSearch={setSearch} search= {search}></SearchBox>
           </Col>
         </Row>
         <Row>
