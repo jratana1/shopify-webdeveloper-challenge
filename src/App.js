@@ -23,6 +23,7 @@ function App() {
   const [movies, setMovies] =useState([])
   const [page, setPage] = useState(1)
   const [search, setSearch] = useState({year: "", term: ""})
+  const [nominations, setNominations] = useState([])
 
   function mapMoviesToCards() {
     if (movies.Search && movies.Search.length) {

@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card'
 import NoImage from '../NoImage.svg'
+import Nominate from './nominate'
 
 function MovieCard(props) {
     return (
@@ -9,7 +10,8 @@ function MovieCard(props) {
                 <Card.Title>{props.title} - {props.year}</Card.Title>
             </Card.Body>
             <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
+            {/* <small className="text-muted">Last updated 3 mins ago</small> */}
+                <Nominate></Nominate>
             </Card.Footer>
         </Card>
     )
