@@ -11,7 +11,7 @@ function MovieCard(props) {
             </Card.Body>
             <Card.Footer>
             {/* <small className="text-muted">Last updated 3 mins ago</small> */}
-                <Nominate></Nominate>
+                <Nominate poster={props.poster} title={props.title} year={props.year} imdb={props.imdb} setNominations={props.setNominations} nominations={props.nominations}></Nominate>
             </Card.Footer>
         </Card>
     )

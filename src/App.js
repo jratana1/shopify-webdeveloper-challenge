@@ -28,7 +28,7 @@ function App() {
   function mapMoviesToCards() {
     if (movies.Search && movies.Search.length) {
       return movies.Search.map((movie, index) => {
-        return <MovieCard key={index} imdb={movie.imdbID} title={movie.Title} year={movie.Year} poster={movie.Poster}></MovieCard>
+        return <MovieCard nominations= {nominations} setNominations={setNominations} key={index} imdb={movie.imdbID} title={movie.Title} year={movie.Year} poster={movie.Poster}></MovieCard>
       })
     }
   }
