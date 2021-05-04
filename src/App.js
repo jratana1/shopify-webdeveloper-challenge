@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card'
 import SearchBox from './components/searchBox';
 import Header from './components/header';
 import MovieCard from './components/movieCard'
+import Paginate from './components/paginate'
 
 
 
@@ -20,7 +21,7 @@ import React, { useState, useEffect } from 'react'
 function App() {
   const [isBusy, setBusy] = useState(true)
   const [movies, setMovies] =useState([])
-  const [page, setPage] = useState("1")
+  const [page, setPage] = useState(1)
   const [search, setSearch] = useState({year: "", term: ""})
 
   function mapMoviesToCards() {
@@ -38,7 +39,6 @@ function App() {
       fetch(`http://www.omdbapi.com/?s=${search.term}&y=${search.year}&page=${page}&type=movie&apikey=92f9200d`)
         .then(resp => resp.json())
         .then(data =>{ 
-              
               setMovies(data)
         })
       },
@@ -57,7 +57,7 @@ function App() {
         </Row>
         <Row>
           <Col>
-            <CardDeck className="">
+            <CardDeck>
               <Row>
                 {mapMoviesToCards() ? mapMoviesToCards().slice(0,5) : null}
               </Row>
@@ -66,6 +66,11 @@ function App() {
               </Row>
             </CardDeck>      
           </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row className= "justify-content-center">
+          {mapMoviesToCards() ? <Paginate page={page} total={movies.totalResults} setPage={setPage}></Paginate> : null}
         </Row>
       </Container>
     </div>
