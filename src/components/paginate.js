@@ -4,7 +4,7 @@ function Paginate(props) {
 
 const handleClick = (e) => {
 
-    switch(e.target.id) {
+    switch(e.currentTarget.id) {
         case "first":
           props.setPage(1)
           break;
@@ -38,12 +38,12 @@ return (
         }        
         {props.page >=3 && props.page <= Math.floor(props.total/10) -1 &&
         <>
-        <Pagination.Item id= {props.page-2}>{props.page-2}</Pagination.Item>
-        <Pagination.Item id= {props.page-1}>{props.page-1}</Pagination.Item>
-        <Pagination.Item id= {props.page}active>{props.page}</Pagination.Item>
-        <Pagination.Item id= {props.page+1}>{props.page + 1 }</Pagination.Item>
-        <Pagination.Item id= {props.page+2}>{props.page + 2}</Pagination.Item>
-        </>
+            <Pagination.Item id= {parseInt(props.page)-2} onClick={(e) => handleClick(e)} >{parseInt(props.page)-2}</Pagination.Item>
+            <Pagination.Item id= {parseInt(props.page)-1} onClick={(e) => handleClick(e)}>{parseInt(props.page)-1} </Pagination.Item>
+            <Pagination.Item id= {parseInt(props.page)} onClick={(e) => handleClick(e)} active>{parseInt(props.page)}</Pagination.Item>
+            <Pagination.Item id= {parseInt(props.page)+1} onClick={(e) => handleClick(e)}>{parseInt(props.page) + 1 }</Pagination.Item>
+            <Pagination.Item id= {parseInt(props.page)+2} onClick={(e) => handleClick(e)}>{parseInt(props.page) + 2}</Pagination.Item>
+            </>
         }
         {props.page > Math.floor(props.total/10) -1 &&
                         <>
@@ -54,8 +54,6 @@ return (
                         <Pagination.Item id= {Math.floor(props.total/10) + 1} onClick={(e) => handleClick(e)} active = {props.page === Math.floor(props.total/10) + 1}>{Math.floor(props.total/10) + 1}</Pagination.Item>
                         </>
         }          
-        
-
         <Pagination.Ellipsis />
         <Pagination.Next id= "next" onClick={(e) => handleClick(e)} disabled={props.page===Math.floor(props.total/10)+1}/>
         <Pagination.Last id= "last" onClick={(e) => handleClick(e)}/>
