@@ -3,11 +3,12 @@ import './App.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup'
+import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
 
 import SearchBox from './components/searchBox';
 import Header from './components/header';
+import MovieCard from './components/movieCard'
 
 
 
@@ -20,7 +21,15 @@ function App() {
   const [isBusy, setBusy] = useState(true)
   const [movies, setMovies] =useState([])
   const [page, setPage] = useState("1")
-  const [search, setSearch] = useState({year: "", term: "ram"})
+  const [search, setSearch] = useState({year: "", term: ""})
+
+  function mapMoviesToCards() {
+    if (movies.Search && movies.Search.length) {
+      return movies.Search.map((movie) => {
+        return <MovieCard key={movie.imdbID}title={movie.Title} year={movie.Year} poster={movie.Poster}></MovieCard>
+      })
+    }
+  }
   
 
  
@@ -29,9 +38,11 @@ function App() {
       fetch(`http://www.omdbapi.com/?s=${search.term}&y=${search.year}&page=${page}&type=movie&apikey=92f9200d`)
         .then(resp => resp.json())
         .then(data =>{ 
-              setMovies(data)})
+              
+              setMovies(data)
+        })
       },
-    [search])
+    [search, page])
 
   return (
     <div className="App">
@@ -46,13 +57,14 @@ function App() {
         </Row>
         <Row>
           <Col>
-            <ListGroup>
-              <ListGroup.Item>Cras justo odio</ListGroup.Item>
-              <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-              <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-              <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-              <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-            </ListGroup>
+            <CardDeck className="">
+              <Row>
+                {mapMoviesToCards() ? mapMoviesToCards().slice(0,5) : null}
+              </Row>
+              <Row>
+                {mapMoviesToCards() ? mapMoviesToCards().slice(5,10) : null}
+              </Row>
+            </CardDeck>      
           </Col>
         </Row>
       </Container>
