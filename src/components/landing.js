@@ -7,15 +7,17 @@ import { Link } from 'react-router-dom';
 const Team = () => {
     return(
     <div className= "Team">
-        <div className="Bio">
+        <div className="Bio ">
             <h1><strong>John Ratana</strong></h1>
             <img src={John} alt="That's ME!" height="200px"/>
             <div>Full-Stack Software Engineer</div>
             <p>Ruby, Rails, Javascript, React</p>
-            <p id="bio">John keeps himself busy with rock climbing, coding, cooking, and raising two children (the 4C's).  Based out of Philadelphia, he is always
+            <div className = "About justify-content-center row align-items-center">
+            <p className= "Bio w-50 p-3">John keeps himself busy with rock climbing, coding, cooking, and raising two children (the 4C's).  Based out of Philadelphia, he is always
                 looking for new opportunities to learn, grow, and work.  You can find him <a href="https://www.linkedin.com/in/john-ratana-7aa24063/">here (linkedIn)</a>.
-                Check out his work <a href="https://www.linkedin.com/in/john-ratana-7aa24063/">here (Github)</a>
+                Check out his work <a href="https://github.com/jratana1">here (Github)</a>
             </p>
+            </div>
         </div>
             <h1>Techs</h1>
             <div className= "Techs">
@@ -34,9 +36,10 @@ const Team = () => {
 
 const About = () => {
     return (
-        <div className = "About">
-            <p>
-                This is a front-end SPA built out for the Shopify Front-End internship.  
+        <div className = "About justify-content-center row align-items-center">
+            <p className ="w-50 p-3">
+                This is a front-end SPA built out for the Shopify Front-End internship.  Search for movies from the OMDB database
+                by title or year.  You can nominate up to 5 movies.
                 Click <Link to="/search">Here</Link> to try it out.
             </p>
         </div>
