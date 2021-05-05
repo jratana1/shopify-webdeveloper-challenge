@@ -13,3 +13,14 @@
 
 .navbar-brand {float:none;}
 
+.modal-dialog{
+  min-width: 100px;
+  max-width: 1100px;
+
+}
+
+.modal-body{
+  display: flex;
+  flex-direction: row;
+}
+

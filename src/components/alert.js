@@ -11,7 +11,8 @@ function Alert(props) {
     function mapNominationsToCards() {
       return props.nominations.map((movie, index) => {
 
-        return <MovieCard  
+        return <MovieCard className="col-5"
+                          style={{width: "10%"}}
                           key={index} imdb={movie.imdb} 
                           title={movie.title} 
                           year={movie.year} 
@@ -32,6 +33,7 @@ function Alert(props) {
           </Modal.Header>
           <Modal.Body>{mapNominationsToCards()}</Modal.Body>
           <Modal.Footer>
+          <Modal.Title>{props.alertMsg.body}</Modal.Title>
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>

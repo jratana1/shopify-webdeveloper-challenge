@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card'
 import NoImage from '../NoImage.svg'
 import Nominate from './nominate'
+import DeleteMovie from './deleteMovie'
 
 function MovieCard(props) {
     return (
@@ -10,7 +11,7 @@ function MovieCard(props) {
                 <Card.Title>{props.title} - {props.year}</Card.Title>
             </Card.Body>
             <Card.Footer>
-                {props.show ? null : <Nominate poster={props.poster} 
+                {props.show ? <DeleteMovie></DeleteMovie> : <Nominate poster={props.poster} 
                           title={props.title} 
                           year={props.year} 
                           imdb={props.imdb} 
