@@ -11,7 +11,8 @@ function MovieCard(props) {
                 <Card.Title>{props.title} - {props.year}</Card.Title>
             </Card.Body>
             <Card.Footer>
-                {props.show ? <DeleteMovie></DeleteMovie> : <Nominate poster={props.poster} 
+                {props.show ? <DeleteMovie imdb={props.imdb} setNominations={props.setNominations} nominations={props.nominations}></DeleteMovie> : 
+                <Nominate poster={props.poster} 
                           title={props.title} 
                           year={props.year} 
                           imdb={props.imdb} 
