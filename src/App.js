@@ -32,6 +32,7 @@ function App() {
     if (movies.Search && movies.Search.length) {
       return movies.Search.map((movie, index) => {
         return <MovieCard setShow={setShow}
+                          show={show}
                           setAlertMsg={setAlertMsg}
                           nominations= {nominations} 
                           setNominations={setNominations} 
@@ -96,7 +97,7 @@ function App() {
               {mapMoviesToCards() ? <Paginate page={page} total={movies.totalResults} setPage={setPage}></Paginate> : null}
             </Row>
           </Container>
-            <Alert nominations={nominations} setShow={setShow} show={show} alertMsg={alertMsg}></Alert>
+            <Alert nominations={nominations} setNominations={setNominations} setShow={setShow} show={show} alertMsg={alertMsg}></Alert>
           </Route>
         </div>
     </HashRouter>

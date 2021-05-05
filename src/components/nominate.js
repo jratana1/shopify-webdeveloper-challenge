@@ -1,12 +1,9 @@
 import Button from 'react-bootstrap/Button'
-import Alert from './alert'
-import { useState } from 'react'
+
 
 
 
 function Nominate(props) {
-    // const [show, setShow] = useState(false);
-    // const [alertMsg, setAlertMsg] = useState({title: "", body: ""})
 
  const nominate = (e) => {
     if (props.nominations.length >= 5){
@@ -33,7 +30,6 @@ function Nominate(props) {
                     return (movie.imdb === props.imdb)
                 })
             }>Nominate</Button>
-            {/* <Alert setShow={setShow} show={show} alertMsg={alertMsg}></Alert> */}
             </>
     )
 }
