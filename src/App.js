@@ -7,32 +7,38 @@ import CardDeck from 'react-bootstrap/CardDeck'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
-
 import SearchBox from './components/searchBox';
 import Header from './components/header';
 import MovieCard from './components/movieCard'
 import Paginate from './components/paginate'
 import Landing from './components/landing'
+import Alert from './components/alert'
 
-
-
-import { HashRouter, Route, Link } from 'react-router-dom';
+import { HashRouter, Route} from 'react-router-dom';
 import React, { useState, useEffect } from 'react'
 
 
 
 
 function App() {
-  const [isBusy, setBusy] = useState(true)
   const [movies, setMovies] =useState([])
   const [page, setPage] = useState(1)
   const [search, setSearch] = useState({year: "", term: ""})
   const [nominations, setNominations] = useState([])
+  const [show, setShow] = useState(false);
+  const [alertMsg, setAlertMsg] = useState({title: "", body: ""})
 
   function mapMoviesToCards() {
     if (movies.Search && movies.Search.length) {
       return movies.Search.map((movie, index) => {
-        return <MovieCard nominations= {nominations} setNominations={setNominations} key={index} imdb={movie.imdbID} title={movie.Title} year={movie.Year} poster={movie.Poster}></MovieCard>
+        return <MovieCard setShow={setShow}
+                          setAlertMsg={setAlertMsg}
+                          nominations= {nominations} 
+                          setNominations={setNominations} 
+                          key={index} imdb={movie.imdbID} 
+                          title={movie.Title} 
+                          year={movie.Year} 
+                          poster={movie.Poster}></MovieCard>
       })
     }
   }
@@ -58,7 +64,7 @@ function App() {
                   <Nav className="mr-auto">
                   <Nav.Link href="#home">Home</Nav.Link>
                   <Nav.Link href="#/search">Search</Nav.Link>
-                  <Nav.Link href="#/search">Nominations</Nav.Link>
+                  <Nav.Link onClick={()=> setShow(true)}>Nominations</Nav.Link>
                   </Nav>   
                </Navbar>
           </Container>  
@@ -90,10 +96,7 @@ function App() {
               {mapMoviesToCards() ? <Paginate page={page} total={movies.totalResults} setPage={setPage}></Paginate> : null}
             </Row>
           </Container>
-          </Route>
-
-          <Route exact path="/nominations" >
-              <Nominations></Nominations>
+            <Alert nominations={nominations} setShow={setShow} show={show} alertMsg={alertMsg}></Alert>
           </Route>
         </div>
     </HashRouter>

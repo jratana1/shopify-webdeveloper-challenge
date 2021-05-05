@@ -10,7 +10,14 @@ function MovieCard(props) {
                 <Card.Title>{props.title} - {props.year}</Card.Title>
             </Card.Body>
             <Card.Footer>
-                <Nominate poster={props.poster} title={props.title} year={props.year} imdb={props.imdb} setNominations={props.setNominations} nominations={props.nominations}></Nominate>
+                <Nominate poster={props.poster} 
+                          title={props.title} 
+                          year={props.year} 
+                          imdb={props.imdb} 
+                          setShow={props.setShow}
+                          setAlertMsg={props.setAlertMsg}
+                          setNominations={props.setNominations} 
+                          nominations={props.nominations}></Nominate>
             </Card.Footer>
         </Card>
     )
