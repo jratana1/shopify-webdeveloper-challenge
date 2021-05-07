@@ -40,7 +40,7 @@ const About = () => {
             <p className ="w-50 p-3">
                 This is a front-end SPA built out for the Shopify Front-End internship.  Search for movies from the OMDB database
                 by title or year.  You can nominate up to 5 movies.
-                Click <Link to="/search">Here</Link> to try it out.
+                Click <Link to="/search" >Here</Link> to try it out.
             </p>
         </div>
     )
