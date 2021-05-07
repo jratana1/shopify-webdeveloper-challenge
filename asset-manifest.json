@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/shopify-webdeveloper-challenge/static/css/main.b90a8b93.chunk.css",
+    "main.css": "/shopify-webdeveloper-challenge/static/css/main.4867401d.chunk.css",
     "main.js": "/shopify-webdeveloper-challenge/static/js/main.3c6a2965.chunk.js",
     "main.js.map": "/shopify-webdeveloper-challenge/static/js/main.3c6a2965.chunk.js.map",
     "runtime-main.js": "/shopify-webdeveloper-challenge/static/js/runtime-main.84e76282.js",
@@ -12,7 +12,7 @@
     "static/js/3.5c5f0d21.chunk.js.map": "/shopify-webdeveloper-challenge/static/js/3.5c5f0d21.chunk.js.map",
     "index.html": "/shopify-webdeveloper-challenge/index.html",
     "static/css/2.150d169a.chunk.css.map": "/shopify-webdeveloper-challenge/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.b90a8b93.chunk.css.map": "/shopify-webdeveloper-challenge/static/css/main.b90a8b93.chunk.css.map",
+    "static/css/main.4867401d.chunk.css.map": "/shopify-webdeveloper-challenge/static/css/main.4867401d.chunk.css.map",
     "static/js/2.73e8a045.chunk.js.LICENSE.txt": "/shopify-webdeveloper-challenge/static/js/2.73e8a045.chunk.js.LICENSE.txt",
     "static/media/20200715_112939.5b54978b.jpg": "/shopify-webdeveloper-challenge/static/media/20200715_112939.5b54978b.jpg",
     "static/media/NoImage.ee97e8e7.svg": "/shopify-webdeveloper-challenge/static/media/NoImage.ee97e8e7.svg",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.84e76282.js",
     "static/css/2.150d169a.chunk.css",
     "static/js/2.73e8a045.chunk.js",
-    "static/css/main.b90a8b93.chunk.css",
+    "static/css/main.4867401d.chunk.css",
     "static/js/main.3c6a2965.chunk.js"
   ]
 }
