@@ -9,10 +9,10 @@ const handleClick = (e) => {
           props.setPage(1)
           break;
         case "prev":
-          props.setPage(props.page-1)
+          props.setPage(parseInt(props.page)-1)
           break;
         case "next":
-            props.setPage(props.page+1)
+            props.setPage(parseInt(props.page)+1)
             break;
         case "last":
             props.setPage(Math.floor(props.total/10) + 1)
