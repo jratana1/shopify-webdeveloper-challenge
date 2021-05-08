@@ -18,7 +18,7 @@ const handleClick = (e) => {
             props.setPage(Math.floor(props.total/10) + 1)
             break;
         default:
-            props.setPage(e.target.id)
+            props.setPage(parseInt(e.target.id))
       }
 
 } 
