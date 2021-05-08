@@ -27,7 +27,7 @@ return (
         <Pagination.First id= "first" onClick={(e) => handleClick(e)} />
         <Pagination.Prev id= "prev" onClick={(e) => handleClick(e)} disabled={props.page===1}/>
         <Pagination.Ellipsis />
-        {props.page < 3 &&
+        {parseInt(props.page) < 3 &&
                         <>
                         <Pagination.Item id= {1} onClick={(e) => handleClick(e)} active = {props.page === 1}>{1}</Pagination.Item>
                         <Pagination.Item id= {2} onClick={(e) => handleClick(e)} active = {props.page === 2}>{2}</Pagination.Item>
@@ -36,7 +36,7 @@ return (
                         <Pagination.Item id= {5} onClick={(e) => handleClick(e)}>{5}</Pagination.Item>
                         </>
         }        
-        {props.page >=3 && props.page <= Math.floor(props.total/10) -1 &&
+        {parseInt(props.page) >=3 && parseInt(props.page) <= Math.floor(props.total/10) -1 &&
         <>
             <Pagination.Item id= {parseInt(props.page)-2} onClick={(e) => handleClick(e)} >{parseInt(props.page)-2}</Pagination.Item>
             <Pagination.Item id= {parseInt(props.page)-1} onClick={(e) => handleClick(e)}>{parseInt(props.page)-1} </Pagination.Item>
@@ -45,7 +45,7 @@ return (
             <Pagination.Item id= {parseInt(props.page)+2} onClick={(e) => handleClick(e)}>{parseInt(props.page) + 2}</Pagination.Item>
             </>
         }
-        {props.page > Math.floor(props.total/10) -1 &&
+        {parseInt(props.page) > Math.floor(props.total/10) -1 &&
                         <>
                         <Pagination.Item id= {Math.floor(props.total/10) - 3} onClick={(e) => handleClick(e)} >{Math.floor(props.total/10) - 3}</Pagination.Item>
                         <Pagination.Item id= {Math.floor(props.total/10) - 2} onClick={(e) => handleClick(e)} >{Math.floor(props.total/10) - 2}</Pagination.Item>
@@ -55,7 +55,7 @@ return (
                         </>
         }          
         <Pagination.Ellipsis />
-        <Pagination.Next id= "next" onClick={(e) => handleClick(e)} disabled={props.page===Math.floor(props.total/10)+1}/>
+        <Pagination.Next id= "next" onClick={(e) => handleClick(e)} disabled={parseInt(props.page)===Math.floor(props.total/10)+1}/>
         <Pagination.Last id= "last" onClick={(e) => handleClick(e)}/>
     </Pagination>
 )
